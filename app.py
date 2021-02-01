@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from flaskext.markdown import Markdown
+from flask_disqus import Disqus
 import frontmatter, os
+
 app = Flask(__name__)
 
 post_list = {}
@@ -25,4 +27,5 @@ def post(post_id):
 
 if __name__ == '__main__':
     Markdown(app, extensions=['nl2br', 'fenced_code'])
+    disq = Disqus(app)
     app.run(host = '0.0.0.0', port = 80)

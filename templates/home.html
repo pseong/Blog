@@ -13,7 +13,9 @@
   <!-- Blog Post -->
   {% for post in post_list.values() %}
   <div class="card mb-4">
-    <!--<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">-->
+    {% if loop.index%2 == 1 %}
+    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+    {% endif %}
     <div class="card-body">
       <h3 class="card-title">{{ post['title'] }}</h3>
       <p class="card-text">{{ post.content[0:150] }}</p>
