@@ -4,7 +4,7 @@ import frontmatter, os
 app = Flask(__name__)
 
 post_list = {}
-
+    
 def loadPost():
     path_dir = 'static/post'
     file_list = os.listdir(path_dir)
