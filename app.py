@@ -1,9 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import frontmatter, os
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    path_dir = 'static/post'
+    file_list = os.listdir(path_dir)
+    post_list = []
+    for file in file_list:
+        post_list.append(frontmatter.load(path_dir + '/' + file_list[0]))
+    return render_template('home.html', post_list=post_list)
 
 @app.route('/post')
 def post():
