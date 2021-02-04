@@ -11,8 +11,12 @@
     <small>Secondary Text</small>
   </h1>
 -->
-  <hr>
+<!--
+{% if loop.index%2 == 1 %}
+<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+{% endif %}-->
 
+<hr class="my-3">
   <!-- Blog Post -->
   {% for post in post_list.values() %}
   <div class="card mb-4">

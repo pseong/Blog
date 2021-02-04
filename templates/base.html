@@ -66,14 +66,12 @@
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
 
-        <hr>
-
         <!-- Search Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Search</h5>
+          <h5 class="card-header">검색</h5>
           <div class="card-body">
             <div class="input-group">
-              <input type="text" class="form-control" id='search' placeholder="Search for...">
+              <input type="text" class="form-control" id='search' placeholder="">
               <span class="input-group-append">
                 <button class="btn btn-secondary" type="button" onclick="search()">Go!</button>
               </span>
@@ -83,7 +81,7 @@
 
         <!-- Categories Widget -->
         <div class="card my-4">
-          <h5 class="card-header">Categories</h5>
+          <h5 class="card-header">카테고리</h5>
           <div class="card-body">
                 <ul class="list-unstyled mb-0">
                   {% for key, value in category_list.items() %}
@@ -96,12 +94,13 @@
         </div>
 
         <!-- Side Widget -->
+        <!--
         <div class="card my-4">
           <h5 class="card-header">Side Widget</h5>
           <div class="card-body">
             You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
           </div>
-        </div>
+        </div>-->
 
       </div>
 
