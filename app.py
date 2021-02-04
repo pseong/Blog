@@ -6,6 +6,7 @@ import frontmatter, os
 app = Flask(__name__)
 
 post_list = {}
+category_list = set()
     
 def loadPost():
     path_dir = 'static/post'
@@ -14,18 +15,19 @@ def loadPost():
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
         post_list[(ft['title'])] = ft
+        category_list.add(ft['category'])
 
 @app.route('/')
 def home():
     loadPost()
-    return render_template('home.html', post_list=post_list)
+    return render_template('home.html', post_list=post_list, category_list=list(category_list), len=len)
 
 @app.route('/post/<post_id>/')
 def post(post_id):
     loadPost()
-    return render_template('post.html', post=post_list[post_id])
+    return render_template('post.html', post=post_list[post_id], category_list=list(category_list), len=len)
 
 if __name__ == '__main__':
     Markdown(app, extensions=['nl2br', 'fenced_code'])
     disq = Disqus(app)
-    app.run(host = '0.0.0.0', port = 80)
+    app.run(host = '0.0.0.0', port = 7273)
