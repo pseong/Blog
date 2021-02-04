@@ -83,7 +83,7 @@
                 <ul class="list-unstyled mb-0">
                   {% for r in range(0, len(category_list)//2) %}
                   <li>
-                    <a href="#">{{ category_list[r] }}</a>
+                    <a href="{{ url_for('category', category_id=category_list[r] ) }}">{{ category_list[r] }}</a>
                   </li>
                   {% endfor %}
                 </ul>
@@ -92,7 +92,7 @@
                 <ul class="list-unstyled mb-0">
                   {% for r in range(len(category_list)//2, len(category_list)) %}
                   <li>
-                    <a href="#">{{ category_list[r] }}</a>
+                    <a href="{{ url_for('category', category_id=category_list[r] ) }}">{{ category_list[r] }}</a>
                   </li>
                   {% endfor %}
                 </ul>
