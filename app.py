@@ -2,23 +2,32 @@ from flask import Flask, render_template, request
 from flaskext.markdown import Markdown
 from flask_disqus import Disqus
 import frontmatter, os
+from collections import Counter
 
 app = Flask(__name__)
 
 post_list = {}
-category_list = set()
+#category_list = set()
+category_list = Counter()
     
 def loadPost(category_id=''):
     path_dir = 'static/post'
     file_list = os.listdir(path_dir)
     post_list.clear()
+    category_list.clear()
+
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
-        category_list.add(ft['category'])
+        #category_list.add(ft['category'])
+        category_list[ft['category']] += 1
         if(category_id) : 
             if(ft['category'] == category_id) : 
                 post_list[(ft['title'])] = ft
+
         else : post_list[(ft['title'])] = ft
+
+def searchPost(post_id):
+    pass
 
 @app.route('/')
 def home():
