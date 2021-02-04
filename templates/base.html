@@ -78,24 +78,13 @@
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
           <div class="card-body">
-            <div class="row">
-              <div class="col-lg-6">
                 <ul class="list-unstyled mb-0">
-              
                   {% for key, value in category_list.items() %}
                   <li>
                     <a href="{{ url_for('category', category_id=key ) }}">{{ key }}{{ '(' }}{{ value }}{{ ')' }} </a>
                   </li>
-                  {% if loop.index == len(category_list)//2 %}
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled mb-0">
-                  {% endif %}
                   {% endfor %}
                 </ul>
-              </div>
-            </div>
           </div>
         </div>
 
