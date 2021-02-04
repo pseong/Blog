@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flaskext.markdown import Markdown
 from flask_disqus import Disqus
 import frontmatter, os
@@ -7,7 +7,6 @@ from collections import Counter
 app = Flask(__name__)
 
 post_list = {}
-#category_list = set()
 category_list = Counter()
     
 def loadPost(category_id=''):
@@ -18,7 +17,6 @@ def loadPost(category_id=''):
 
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
-        #category_list.add(ft['category'])
         category_list[ft['category']] += 1
         if(category_id) : 
             if(ft['category'] == category_id) : 
@@ -27,22 +25,44 @@ def loadPost(category_id=''):
         else : post_list[(ft['title'])] = ft
 
 def searchPost(post_id):
-    pass
+    path_dir = 'static/post'
+    file_list = os.listdir(path_dir)
+    post_list.clear()
+    category_list.clear()
+
+    for file in file_list:
+        ft = frontmatter.load(path_dir + '/' + file)
+        category_list[ft['category']] += 1
+        if(post_id in ft['title']) : 
+            post_list[(ft['title'])] = ft
 
 @app.route('/')
+def root():
+    return redirect(url_for('home'))
+
+@app.route('/home')
 def home():
     loadPost()
-    return render_template('home.html', post_list=post_list, category_list=list(category_list), len=len)
+    return render_template('home.html', post_list=post_list, category_list=category_list, len=len)
 
 @app.route('/post/<post_id>/')
 def post(post_id):
     loadPost()
-    return render_template('post.html', post=post_list[post_id], category_list=list(category_list), len=len)
+    return render_template('post.html', post=post_list[post_id], category_list=category_list, len=len)
 
 @app.route('/category/<category_id>/')
 def category(category_id):
     loadPost(category_id)
-    return render_template('home.html', post_list=post_list, category_list=list(category_list), len=len)
+    return render_template('home.html', post_list=post_list, category_list=category_list, len=len)
+
+@app.route('/search/<search_id>')
+def search(search_id):
+    searchPost(search_id)
+    return render_template('home.html', post_list=post_list, category_list=category_list, len=len)
+
+@app.route('/search/')
+def notsearch():
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     Markdown(app, extensions=['nl2br', 'fenced_code'])
