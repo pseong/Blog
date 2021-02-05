@@ -11,12 +11,8 @@
     <small>Secondary Text</small>
   </h1>
 -->
-<!--
-{% if loop.index%2 == 1 %}
-<img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-{% endif %}-->
 
-<hr class="my-3">
+  <hr>
   <!-- Blog Post -->
   {% for post in post_list.values() %}
   <div class="card mb-4">
@@ -43,6 +39,35 @@
     <li class="page-item disabled">
       <a class="page-link" href="#">Newer &rarr;</a>
     </li>
+  </ul>
+
+  <!-- Post List -->
+  <table class="table table-sm">
+    <thead>
+    <tr class="table-secondary">
+      <td class="text-muted">글 제목</th>
+      <td class="text-right text-muted">작성일</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for post2 in post_list.values() %}
+    <tr>
+      <td>{{ post2['title'] }}</td>
+      <td class="text-right font-italic text-secondary">{{ post2['date'] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Pagination -->
+  <ul class="pagination justify-content-center mb-4">
+    <li class="page-item disabled"><a class="page-link" href="#">이전</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item active"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#">다음</a></li>
   </ul>
 
 </div>
