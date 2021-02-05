@@ -72,21 +72,18 @@
             <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
           </span>
         </div>
-
+        
         <!-- Categories Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">카테고리</h5>
-          <div class="card-body">
-                <ul class="list-unstyled mb-0">
-                  {% for key, value in category_list.items() %}
-                  <li>
-                    <a href="{{ url_for('category', category_id=key ) }}">{{ key }}{{ '(' }}{{ value }}{{ ')' }} </a>
-                  </li>
-                  {% endfor %}
-                </ul>
-          </div>
-        </div>
 
+        <ul class="list-group mt-4">
+          <li class="list-group-item">카테고리</li>
+          {% for key, value in category_list.items() %}
+          <li class="list-group-item">
+            <a class="text-dark" href="{{ url_for('category', category_id=key ) }}" >{{ key }}{{ '(' }}{{ value }}{{ ')' }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        
         <!-- Side Widget -->
         <!--
         <div class="card my-4">
