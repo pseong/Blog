@@ -77,6 +77,9 @@
 
         <ul class="list-group mt-4">
           <li class="list-group-item">카테고리</li>
+          <li class="list-group-item">
+            <a class="text-dark" href="{{ url_for('home') }}" >전체 게시글</a>
+          </li>
           {% for key, value in category_list.items() %}
           <li class="list-group-item">
             <a class="text-dark" href="{{ url_for('category', category_id=key ) }}" >{{ key }}{{ '(' }}{{ value }}{{ ')' }}</a>

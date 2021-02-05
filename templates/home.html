@@ -15,46 +15,31 @@
   </h1>-->
 
   <!-- Post List -->
-  <table class="table table-sm">
-    <thead>
-    <tr class="table-secondary">
-      <td class="text-muted">
-        {% if category_id %}{{ category_id }}
-        {% elif search_id %}{{ '검색 : ' + search_id }}
-        {% else %}{{ '전체 게시글' }}
-        {% endif %}
-      </th>
-      <td class="text-right text-muted">작성일</td>
-    </tr>
-    </thead>
-    <tbody>
-    {% for post in posts %}
-    <tr>
-      <td>{{ post }}</td>
-      <td class="text-right font-italic text-secondary">{{ post_list[post]['date'] }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-  </table>
-  <ul class="pagination justify-content-center mb-4">{{ pagination.links }}</ul>
+  <h2 class='mt-4'>
+  {% if category_id %}{{ category_id }}
+  {% elif search_id %}{{ '검색 : ' + search_id }}
+  {% else %}{{ '전체 게시글' }}
+  {% endif %}
+  </h2>
 
   <!-- Blog Post -->
-  {% for post in post_list.values() %}
+  {% for post in posts %}
   <div class="card mb-2">
     {% if loop.index%2 == 1 %}
     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
     {% endif %}
     <div class="card-body">
-      <h3 class="card-title">{{ post['title'] }}</h3>
-      <p class="card-text">{{ post.content[0:150] }}</p>
+      <h3 class="card-title">{{ post }}</h3>
+      <p class="card-text">{{ post_list[post].content[0:150] }}</p>
       <a href="{{ url_for('post', post_id=post['title']) }}" class="btn btn-primary btn-sm">Read More &rarr;</a>
     </div>
     <div class="card-footer text-muted">
-      {{ post['date'] }}
+      {{ post_list[post]['date'] }}
       <!--<a href="#">Start Bootstrap</a>-->
     </div>
   </div>
   {% endfor %}
+  <ul class="pagination justify-content-center mb-4">{{ pagination.links }}</ul>
 
 </div>
 {% endblock %}
