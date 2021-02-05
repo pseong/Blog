@@ -57,15 +57,12 @@
 
   <!-- Page Content -->
   <div class="container">
-
     <div class="row">
-
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
 
         <!-- Search Widget -->
         <br>
-
         <div class="input-group">
           <input type="text" class="form-control" id='search' placeholder="검색">
           <span class="input-group-append">
@@ -75,44 +72,31 @@
         
         <!-- Categories Widget -->
         <div class="list-group mt-4">
-            <a class="list-group-item text-dark" data-toggle="collapse" href="#collapse">
+            <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
               카테고리
             </a>
-          <div id="collapse" class="collapse">
+          <div id="mycollapse" class="collapse">
             {% for key, value in category_list.items() %}
             {% if category_id==key %}
             <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
                 href="{{ url_for('category', category_id=key) }}">
               {{ key }}
-              <span class="badge badge-warning">{{ value }}</span>
+              <span class="badge badge-warning rounded-pill">{{ value }}</span>
             </a>
             {% else %}
             <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
                 href="{{ url_for('category', category_id=key) }}">
               {{ key }}
-              <span class="badge badge-warning">{{ value }}</span>
+              <span class="badge badge-warning rounded-pill">{{ value }}</span>
             </a>
             {% endif %}
             {% endfor %}
           </div>
         </div>
-        
-        <!-- Side Widget -->
-        <!--
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>-->
-
       </div>
-
       {% block content %}
       {% endblock %}
-
     </div>
-
   </div>
 
   <!-- Footer -->
