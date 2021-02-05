@@ -81,16 +81,16 @@
           <div id="collapse" class="collapse">
             {% for key, value in category_list.items() %}
             {% if category_id==key %}
-            <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
+            <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
                 href="{{ url_for('category', category_id=key) }}">
               {{ key }}
-              <span class="badge badge-primary">{{ value }}</span>
+              <span class="badge badge-warning">{{ value }}</span>
             </a>
             {% else %}
             <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
                 href="{{ url_for('category', category_id=key) }}">
               {{ key }}
-              <span class="badge badge-primary">{{ value }}</span>
+              <span class="badge badge-warning">{{ value }}</span>
             </a>
             {% endif %}
             {% endfor %}
