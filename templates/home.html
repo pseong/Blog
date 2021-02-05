@@ -6,18 +6,24 @@
 <!-- Blog Entries Column -->
 <div class="col-md-9">
 
-  <h1 class="my-4">
+  <!--
+  <h1 class="my-3 text-center">
     {% if category_id %}{{ category_id }}
     {% elif search_id %}{{ '검색 : ' + search_id }}
     {% else %}{{ '전체 게시글' }}
     {% endif %}
-  </h1>
+  </h1>-->
 
   <!-- Post List -->
   <table class="table table-sm">
     <thead>
     <tr class="table-secondary">
-      <td class="text-muted">글 제목</th>
+      <td class="text-muted">
+        {% if category_id %}{{ category_id }}
+        {% elif search_id %}{{ '검색 : ' + search_id }}
+        {% else %}{{ '전체 게시글' }}
+        {% endif %}
+      </th>
       <td class="text-right text-muted">작성일</td>
     </tr>
     </thead>
@@ -34,7 +40,7 @@
 
   <!-- Blog Post -->
   {% for post in post_list.values() %}
-  <div class="card mb-4">
+  <div class="card mb-2">
     {% if loop.index%2 == 1 %}
     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
     {% endif %}

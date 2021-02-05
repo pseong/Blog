@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Post - Start Bootstrap Template</title>
+  <title>Psoeng's blog</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -60,23 +60,17 @@
 
     <div class="row">
 
-      {% block content %}
-      {% endblock %}
-
       <!-- Sidebar Widgets Column -->
       <div class="col-md-3">
 
         <!-- Search Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">검색</h5>
-          <div class="card-body">
-            <div class="input-group">
-              <input type="text" class="form-control" id='search' placeholder="">
-              <span class="input-group-append">
-                <button class="btn btn-secondary" type="button" onclick="search()">Go!</button>
-              </span>
-            </div>
-          </div>
+        <br>
+
+        <div class="input-group">
+          <input type="text" class="form-control" id='search' placeholder="검색">
+          <span class="input-group-append">
+            <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
+          </span>
         </div>
 
         <!-- Categories Widget -->
@@ -103,6 +97,9 @@
         </div>-->
 
       </div>
+
+      {% block content %}
+      {% endblock %}
 
     </div>
     <!-- /.row -->
