@@ -74,19 +74,28 @@
         </div>
         
         <!-- Categories Widget -->
-        <ul class="list-group mt-4"></ul>
-          <a role="button" data-toggle="collapse" href="#collapse">
-            <li class="list-group-item">카테고리</li>
-          </a>
-        <div id="collapse" class="collapse">
-          {% for key, value in category_list.items() %}
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <a class="text-dark" href="{{ url_for('category', category_id=key ) }}" >{{ key }}</a>
-            <span class="badge badge-primary">{{ value }}</span>
-          </li>
-          {% endfor %}
+        <div class="list-group mt-4">
+            <a class="list-group-item text-dark" data-toggle="collapse" href="#collapse">
+              카테고리
+            </a>
+          <div id="collapse" class="collapse">
+            {% for key, value in category_list.items() %}
+            {% if category_id==key %}
+            <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
+                href="{{ url_for('category', category_id=key) }}">
+              {{ key }}
+              <span class="badge badge-primary">{{ value }}</span>
+            </a>
+            {% else %}
+            <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
+                href="{{ url_for('category', category_id=key) }}">
+              {{ key }}
+              <span class="badge badge-primary">{{ value }}</span>
+            </a>
+            {% endif %}
+            {% endfor %}
+          </div>
         </div>
-        </ul>
         
         <!-- Side Widget -->
         <!--
