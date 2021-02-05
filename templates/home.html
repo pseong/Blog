@@ -21,12 +21,9 @@
     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
     {% endif %}
     <div class="card-body">
-      <h3 class="card-title">{{ post }}</h3>
+      <h3 class="card-title"><a class="text-dark" href="{{ url_for('post', post_id=post) }}">{{ post }}</a></h3>
       <p class="card-text">{{ post_list[post].content[0:150] }}</p>
-      <a href="{{ url_for('post', post_id=post) }}" class="btn btn-primary btn-sm">Read More &rarr;</a>
-    </div>
-    <div class="card-footer text-muted">
-      {{ post_list[post]['date'] }}
+      <p class="card-text text-muted">{{ post_list[post]['date'] }}</p>
     </div>
   </div>
   {% endfor %}
