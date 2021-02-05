@@ -6,14 +6,6 @@
 <!-- Blog Entries Column -->
 <div class="col-md-9">
 
-  <!--
-  <h1 class="my-3 text-center">
-    {% if category_id %}{{ category_id }}
-    {% elif search_id %}{{ '검색 : ' + search_id }}
-    {% else %}{{ '전체 게시글' }}
-    {% endif %}
-  </h1>-->
-
   <!-- Post List -->
   <h2 class='mt-4'>
   {% if category_id %}{{ category_id }}
@@ -24,7 +16,7 @@
 
   <!-- Blog Post -->
   {% for post in posts %}
-  <div class="card mb-2">
+  <div class="card mb-4">
     {% if loop.index%2 == 1 %}
     <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
     {% endif %}
@@ -35,7 +27,6 @@
     </div>
     <div class="card-footer text-muted">
       {{ post_list[post]['date'] }}
-      <!--<a href="#">Start Bootstrap</a>-->
     </div>
   </div>
   {% endfor %}
