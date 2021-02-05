@@ -13,16 +13,14 @@
   {% else %}{{ '전체 게시글' }}
   {% endif %}
   </h2>
-
+  
   <!-- Blog Post -->
   {% for post in posts %}
   <div class="card mb-4">
-    {% if loop.index%2 == 1 %}
-    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-    {% endif %}
+  <!--<img src="http://placehold.it/300x300" class="card-img-top h-100" alt="Card image cap">-->
     <div class="card-body">
-      <h3 class="card-title"><a class="text-dark" href="{{ url_for('post', post_id=post) }}">{{ post }}</a></h3>
-      <p class="card-text">{{ post_list[post].content[0:150] }}</p>
+      <h5 class="card-title"><a class="text-dark" href="{{ url_for('post', post_id=post) }}">{{ post }}</a></h5>
+      <p class="card-text">{{ post_list[post].content[0:130] }}</p>
       <p class="card-text text-muted">{{ post_list[post]['date'] }}</p>
     </div>
   </div>

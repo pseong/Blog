@@ -81,8 +81,9 @@
             <a class="text-dark" href="{{ url_for('home') }}" >전체 게시글</a>
           </li>
           {% for key, value in category_list.items() %}
-          <li class="list-group-item">
-            <a class="text-dark" href="{{ url_for('category', category_id=key ) }}" >{{ key }}{{ '(' }}{{ value }}{{ ')' }}</a>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a class="text-dark" href="{{ url_for('category', category_id=key ) }}" >{{ key }}</a>
+            <span class="badge badge-primary">{{ value }}</span>
           </li>
           {% endfor %}
         </ul>
