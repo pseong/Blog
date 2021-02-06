@@ -7,46 +7,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
   <title>Psoeng's blog</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
+
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
 
 </head>
 
-<body>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendors/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+<body class="sb-nav-fixed">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <div class="container">
+      <button class="btn btn-link btn-sm" id="sidebarToggle" href="#"><span class="navbar-toggler-icon"></span></button>
+      
       <a class="navbar-brand" href="{{url_for('home')}}">Pseong's blog</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
     </div>
   </nav>
+
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+          <div class="nav">
+            <div class="sb-sidenav-menu-heading">카테고리</div>
+            <a class="nav-link" href="index.html">
+              <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+              Dashboard
+            </a>
+            <div class="sb-sidenav-menu-heading">카테고리</div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+              <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+              Layouts
+              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="layout-static.html">Static Navigation</a>
+                  <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+              </nav>
+            </div>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+              <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+              Pages
+              <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+              <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                  Authentication
+                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                  <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" href="register.html">Register</a>
+                    <a class="nav-link" href="password.html">Forgot Password</a>
+                  </nav>
+                </div>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                  Error
+                  <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                    <nav class="sb-sidenav-menu-nested nav">
+                      <a class="nav-link" href="401.html">401 Page</a>
+                      <a class="nav-link" href="404.html">404 Page</a>
+                      <a class="nav-link" href="500.html">500 Page</a>
+                    </nav>
+                </div>
+              </nav>
+            </div>
+            <div class="sb-sidenav-menu-heading">카테고리</div>
+            <a class="nav-link" href="charts.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Charts
+            </a>
+            <a class="nav-link" href="tables.html">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                Tables
+            </a>
+          </div>
+        </div>
+        <div class="sb-sidenav-footer">
+          <div class="small">Logged in as:</div>
+          Start Bootstrap
+        </div>
+      </nav>
+    </div>
+    <div id="layoutSidenav_content">
+      <main>
+        <!-- Page Content -->
+        <div class="container">
+          <div class="row">
+            <!-- Sidebar Widgets Column -->
+            <div class="col-md-3 mt-4">
+
+              <!-- Search Widget -->
+              <div class="input-group">
+                <input type="text" class="form-control" id='search' placeholder="검색">
+                <span class="input-group-append">
+                  <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
+                </span>
+              </div>
+              
+              <!-- Categories Widget -->
+              <div class="list-group mt-4">
+                  <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
+                    카테고리
+                  </a>
+                <div id="mycollapse" class="collapse">
+                  {% for key, value in category_list.items() %}
+                  {% if category_id==key %}
+                  <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
+                      href="{{ url_for('category', category_id=key) }}">
+                    {{ key }}
+                    <span class="badge badge-warning rounded-pill">{{ value }}</span>
+                  </a>
+                  {% else %}
+                  <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
+                      href="{{ url_for('category', category_id=key) }}">
+                    {{ key }}
+                    <span class="badge badge-warning rounded-pill">{{ value }}</span>
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+          <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+  </div>
 
   <script>
   function search() {
@@ -54,61 +172,7 @@
     location.href="https://pseong.kr/search/"+searchtxt
   }
   </script>
-
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-3 mt-4">
-
-        <!-- Search Widget -->
-        <div class="input-group">
-          <input type="text" class="form-control" id='search' placeholder="검색">
-          <span class="input-group-append">
-            <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
-          </span>
-        </div>
-        
-        <!-- Categories Widget -->
-        <div class="list-group mt-4">
-            <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
-              카테고리
-            </a>
-          <div id="mycollapse" class="collapse">
-            {% for key, value in category_list.items() %}
-            {% if category_id==key %}
-            <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
-                href="{{ url_for('category', category_id=key) }}">
-              {{ key }}
-              <span class="badge badge-warning rounded-pill">{{ value }}</span>
-            </a>
-            {% else %}
-            <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
-                href="{{ url_for('category', category_id=key) }}">
-              {{ key }}
-              <span class="badge badge-warning rounded-pill">{{ value }}</span>
-            </a>
-            {% endif %}
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-      {% block content %}
-      {% endblock %}
-    </div>
-  </div>
-  
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ url_for('static', filename='vendors/jquery/jquery.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
 
 </html>
