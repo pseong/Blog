@@ -1,114 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+  <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Psoeng's blog</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
+  
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/simple-sidebar.css') }}" rel="stylesheet">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  </head>
+  
+  
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static', filename='vendors/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  
+  <body>
+  <div class="d-flex" id="wrapper">
 
-  <title>Psoeng's blog</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="{{ url_for('static', filename='vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="{{ url_for('static', filename='css/blog-home.css') }}" rel="stylesheet">
-
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="{{url_for('home')}}">Pseong's blog</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Pseong</div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">첫번째</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">두번째</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">세번째</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">네번째</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">다섯번째</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">여섯번째</a>
       </div>
     </div>
-  </nav>
 
-  <script>
-  function search() {
-    var searchtxt = document.getElementById("search").value;
-    location.href="https://pseong.kr/search/"+searchtxt
-  }
-  </script>
+    <div id="page-content-wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
+        <div class="container">
+          <button class="navbar-toggler" id="menu-toggle">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
-      <!-- Sidebar Widgets Column -->
-      <div class="col-md-3 mt-4">
+          <a class="navbar-brand" href="{{url_for('home')}}">Pseong's blog</a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <!-- Search Widget -->
-        <div class="input-group">
-          <input type="text" class="form-control" id='search' placeholder="검색">
-          <span class="input-group-append">
-            <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
-          </span>
-        </div>
-        
-        <!-- Categories Widget -->
-        <div class="list-group mt-4">
-            <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
-              카테고리
-            </a>
-          <div id="mycollapse" class="collapse">
-            {% for key, value in category_list.items() %}
-            {% if category_id==key %}
-            <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
-                href="{{ url_for('category', category_id=key) }}">
-              {{ key }}
-              <span class="badge badge-warning rounded-pill">{{ value }}</span>
-            </a>
-            {% else %}
-            <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
-                href="{{ url_for('category', category_id=key) }}">
-              {{ key }}
-              <span class="badge badge-warning rounded-pill">{{ value }}</span>
-            </a>
-            {% endif %}
-            {% endfor %}
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
           </div>
+
+          
+        </div>
+      </nav>
+
+      <!-- Page Content -->
+      <div class="container">
+        <div class="row">
+          <!-- Sidebar Widgets Column -->
+          <div class="col-md-3 mt-4">
+
+            <!-- Search Widget -->
+            <div class="input-group">
+              <input type="text" class="form-control" id='search' placeholder="검색">
+              <span class="input-group-append">
+                <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
+              </span>
+            </div>
+            
+            <!-- Categories Widget -->
+            <div class="list-group mt-4">
+                <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
+                  카테고리
+                </a>
+              <div id="mycollapse" class="collapse">
+                {% for key, value in category_list.items() %}
+                {% if category_id==key %}
+                <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
+                    href="{{ url_for('category', category_id=key) }}">
+                  {{ key }}
+                  <span class="badge badge-warning rounded-pill">{{ value }}</span>
+                </a>
+                {% else %}
+                <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
+                    href="{{ url_for('category', category_id=key) }}">
+                  {{ key }}
+                  <span class="badge badge-warning rounded-pill">{{ value }}</span>
+                </a>
+                {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% block content %}
+          {% endblock %}
         </div>
       </div>
-      {% block content %}
-      {% endblock %}
     </div>
   </div>
   
+
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+    function search() {
+      var searchtxt = document.getElementById("search").value;
+      location.href="https://pseong.kr/search/"+searchtxt
+    }
+  </script>
+
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
     </div>
   </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{ url_for('static', filename='vendors/jquery/jquery.min.js') }}"></script>
-  <script src="{{ url_for('static', filename='vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+  
 </body>
 
 </html>
