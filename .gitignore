@@ -1,2 +1,5 @@
 /.vscode
 /templates/platform
+/templates/401.html
+/templates/404.html
+/templates/500.html

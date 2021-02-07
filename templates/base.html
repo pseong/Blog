@@ -31,14 +31,14 @@
       <button class="btn btn-link btn-sm" id="sidebarToggle" href="#"><span class="navbar-toggler-icon"></span></button>
       
       <a class="navbar-brand" href="{{url_for('home')}}">Pseong's blog</a>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
+            <!-- Navbar Search-->
+            <!--<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></form>-->
+      <div class="input-group">
+          <input id="search" class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+          <div class="input-group-append">
+              <button class="btn btn-secondary" type="button" onclick="search()"><i class="fas fa-search"></i></button>
+          </div>
+      </div>
     </div>
   </nav>
 
@@ -47,21 +47,24 @@
       <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
           <div class="nav">
-            <div class="sb-sidenav-menu-heading">카테고리</div>
-            <a class="nav-link" href="index.html">
+            <div class="sb-sidenav-menu-heading">About</div>
+            <a class="nav-link" href="#">
               <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-              Dashboard
+              Contact
             </a>
-            <div class="sb-sidenav-menu-heading">카테고리</div>
+            <div class="sb-sidenav-menu-heading">Category</div>
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
               <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-              Layouts
+              Category
               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
               <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                  <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                  {% for key, value in category_list.items() %}
+                  <a class="nav-link text-light d-flex justify-content-between align-items-center" href="{{ url_for('category', category_id=key) }}">
+                    {{ key }}<span class="badge badge-warning rounded-pill">{{ value }}</span>
+                  </a>
+                  {% endfor %}
               </nav>
             </div>
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -77,9 +80,9 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                   <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="login.html">Login</a>
-                    <a class="nav-link" href="register.html">Register</a>
-                    <a class="nav-link" href="password.html">Forgot Password</a>
+                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="#">Forgot Password</a>
                   </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -88,73 +91,75 @@
                 </a>
                 <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                     <nav class="sb-sidenav-menu-nested nav">
-                      <a class="nav-link" href="401.html">401 Page</a>
-                      <a class="nav-link" href="404.html">404 Page</a>
-                      <a class="nav-link" href="500.html">500 Page</a>
+                      <a class="nav-link" href="#">401 Page</a>
+                      <a class="nav-link" href="#">404 Page</a>
+                      <a class="nav-link" href="#">500 Page</a>
                     </nav>
                 </div>
               </nav>
             </div>
-            <div class="sb-sidenav-menu-heading">카테고리</div>
-            <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                Charts
+            <div class="sb-sidenav-menu-heading">아무거나 메뉴</div>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+              첫번째
             </a>
-            <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              두번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              세번째
+            </a>
+              <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              네번째
+            </a>
+            <div class="sb-sidenav-menu-heading">아무거나 메뉴2</div>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              다섯번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              여섯번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              일곱번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              여덟번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              아홉번째
+            </a>
+            <div class="sb-sidenav-menu-heading">아무거나 메뉴3</div>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              열번째
+            </a>
+            <a class="nav-link" href="#">
+              <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+              열하나번째
             </a>
           </div>
         </div>
+        <!--
         <div class="sb-sidenav-footer">
           <div class="small">Logged in as:</div>
           Start Bootstrap
-        </div>
+        </div>-->
       </nav>
     </div>
     <div id="layoutSidenav_content">
       <main>
         <!-- Page Content -->
         <div class="container">
-          <div class="row">
-            <!-- Sidebar Widgets Column -->
-            <div class="col-md-3 mt-4">
-
-              <!-- Search Widget -->
-              <div class="input-group">
-                <input type="text" class="form-control" id='search' placeholder="검색">
-                <span class="input-group-append">
-                  <button class="btn btn-secondary" type="button" onclick="search()">검색</button>
-                </span>
-              </div>
-              
-              <!-- Categories Widget -->
-              <div class="list-group mt-4">
-                  <a class="list-group-item text-dark" data-toggle="collapse" href="#mycollapse">
-                    카테고리
-                  </a>
-                <div id="mycollapse" class="collapse">
-                  {% for key, value in category_list.items() %}
-                  {% if category_id==key %}
-                  <a class="list-group-item text-light bg-info d-flex justify-content-between align-items-center"
-                      href="{{ url_for('category', category_id=key) }}">
-                    {{ key }}
-                    <span class="badge badge-warning rounded-pill">{{ value }}</span>
-                  </a>
-                  {% else %}
-                  <a class="list-group-item text-dark d-flex justify-content-between align-items-center"
-                      href="{{ url_for('category', category_id=key) }}">
-                    {{ key }}
-                    <span class="badge badge-warning rounded-pill">{{ value }}</span>
-                  </a>
-                  {% endif %}
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-            {% block content %}
-            {% endblock %}
-          </div>
+          {% block content %}
+          {% endblock %}
         </div>
         <!-- Footer -->
         <footer class="py-5 bg-dark">
