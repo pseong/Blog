@@ -61,7 +61,7 @@
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
               <nav class="sb-sidenav-menu-nested nav">
                   {% for key, value in category_list.items() %}
-                  <a class="nav-link text-light d-flex justify-content-between align-items-center" href="{{ url_for('category', category_id=key) }}">
+                  <a class="nav-link d-flex justify-content-between align-items-center" href="{{ url_for('category', category_id=key) }}">
                     {{ key }}<span class="badge badge-warning rounded-pill">{{ value }}</span>
                   </a>
                   {% endfor %}
@@ -164,7 +164,7 @@
         <!-- Footer -->
         <footer class="py-5 bg-dark">
           <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+            <p class="m-0 text-center text-white">Copyright &copy; pseong.kr 2021</p>
           </div>
         </footer>
       </main>
