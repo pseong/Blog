@@ -4357,7 +4357,7 @@ input[type=button].btn-block {
 .card-body {
   flex: 1 1 auto;
   min-height: 1px;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .card-title {
@@ -10047,6 +10047,7 @@ body {
   flex-grow: 1;
   min-height: calc(100vh - 56px);
   margin-left: -225px;
+  background-color: #f5f7f9;
 }
 
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
@@ -10246,4 +10247,15 @@ body {
 }
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
+}
+.my-card {
+  padding: 1px 0;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 0.12rem;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
+  margin-right: inherit;
+  margin-left: inherit;
 }
