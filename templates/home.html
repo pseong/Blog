@@ -7,12 +7,13 @@
 <div>
 
   <!-- Post List -->
-  <h2 class='mt-4 text-center'>
+  <h5 class='mt-4 text-center card-title'>
   {% if category_id %}{{ category_id }}
   {% elif search_id %}{{ '검색 : ' + search_id }}
   {% else %}{{ '전체 게시글' }}
   {% endif %}
   </h2>
+  <hr>
   
   <!-- Blog Post -->
   {% for post in posts %}
