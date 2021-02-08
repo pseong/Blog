@@ -10053,7 +10053,13 @@ body {
 .sb-sidenav-toggled #layoutSidenav #layoutSidenav_nav {
   transform: translateX(0);
 }
-.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
+
+@keyframes anidark {
+  from {opacity: 0;}
+  to {opacity: 0.5;}
+}
+
+.sb-sidenav-toggled #layoutSidenav #layoutSidenav_content .dark {
   content: "";
   display: block;
   position: absolute;
@@ -10063,8 +10069,8 @@ body {
   height: 100%;
   background: #000;
   z-index: 1037;
-  opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  animation: anidark 0.3s ease-in-out forwards;
 }
 
 @media (min-width: 992px) {
@@ -10082,7 +10088,7 @@ body {
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content {
     margin-left: -225px;
   }
-  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
+  .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content .dark{
     display: none;
   }
 }

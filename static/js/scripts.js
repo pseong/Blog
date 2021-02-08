@@ -18,5 +18,15 @@
     $("#sidebarToggle").on("click", function(e) {
         e.preventDefault();
         $("body").toggleClass("sb-sidenav-toggled");
+        if($("#dark").is(".dark")) {
+            $("p.dark").off()
+        }
+        $("#dark").toggleClass("dark");
+        $("p.dark").on("click", function(e) {
+            e.preventDefault();
+            $("body").toggleClass("sb-sidenav-toggled");
+            $("p.dark").off()
+            $("#dark").toggleClass("dark");
+        });
     });
 })(jQuery);
