@@ -100,8 +100,21 @@ def search(search_id):
 @app.route('/search/')
 def notsearch():
     return redirect(url_for('home'))
+    
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', category_list=category_list), 404
+
+@app.errorhandler(401)
+def custom_401(e):
+    return render_template('401.html', category_list=category_list), 401
+
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template('500.html', category_list=category_list), 500
 
 if __name__ == '__main__':
+
     Markdown(app, extensions=['nl2br', 'fenced_code'])
     disq = Disqus(app)
     app.run(host = '0.0.0.0', port = 7273)
