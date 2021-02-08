@@ -10,6 +10,8 @@ app = Flask(__name__)
 post_list = {}
 category_list = Counter()
 
+markdown = None
+
 def loadPost(category_id=''):
     path_dir = '/home/coder/blog/static/post'
     file_list = os.listdir(path_dir)
@@ -63,7 +65,7 @@ def home():
 @app.route('/post/<post_id>/')
 def post(post_id):
     loadPost()
-    return render_template('post.html', post=post_list[post_id], category_list=category_list, len=len)
+    return render_template('post.html', post=post_list[post_id], category_list=category_list, markdown=markdown, len=len)
 
 @app.route('/category/<category_id>/')
 def category(category_id):
@@ -114,7 +116,7 @@ def internal_error(e):
     return render_template('500.html', category_list=category_list), 500
 
 if __name__ == '__main__':
-
     Markdown(app, extensions=['nl2br', 'fenced_code'])
+    markdown = markdown
     disq = Disqus(app)
     app.run(host = '0.0.0.0', port = 80)
