@@ -11,7 +11,7 @@ post_list = {}
 category_list = Counter()
 
 def loadPost(category_id=''):
-    path_dir = 'static/post'
+    path_dir = '/home/coder/blog/static/post'
     file_list = os.listdir(path_dir)
     post_list.clear()
     category_list.clear()
@@ -26,7 +26,7 @@ def loadPost(category_id=''):
         else : post_list[ft['title']] = ft
 
 def searchPost(post_id):
-    path_dir = 'static/post'
+    path_dir = '/home/coder/blog/static/post'
     file_list = os.listdir(path_dir)
     post_list.clear()
     category_list.clear()
