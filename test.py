@@ -4,28 +4,35 @@ from flask_disqus import Disqus
 import frontmatter, os
 from collections import Counter
 import markdown
+import logging
 
 app = Flask(__name__)
 
 post_list = {}
 category_list = Counter()
 
+def sortPostList():
+    global post_list
+    post_list = dict(sorted(post_list.items(), key=lambda x : x[1]['date'], reverse=True))
+
+
 def loadPost(category_id=''):
+    global post_list
     path_dir = '/home/coder/blog/static/post'
     file_list = os.listdir(path_dir)
     post_list.clear()
     category_list.clear()
-
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
         category_list[ft['category']] += 1
         if(category_id) : 
             if(ft['category'] == category_id) : 
                 post_list[ft['title']] = ft
-
         else : post_list[ft['title']] = ft
+    sortPostList()
 
 def searchPost(post_id):
+    global post_list
     path_dir = '/home/coder/blog/static/post'
     file_list = os.listdir(path_dir)
     post_list.clear()
@@ -36,6 +43,7 @@ def searchPost(post_id):
         category_list[ft['category']] += 1
         if(post_id in ft['title']) : 
             post_list[ft['title']] = ft
+    sortPostList()
 
 def get_posts(offset=0, per_page=10):
     return list(post_list.keys())[offset: offset + per_page]

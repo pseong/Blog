@@ -17,7 +17,7 @@
   {{ post['date']}}
 
   <!-- Post Content -->
-  {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code'])|safe }}
+  {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
 
   {% include 'disqus.html' %}
 

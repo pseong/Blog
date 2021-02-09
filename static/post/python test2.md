@@ -2,7 +2,7 @@
 title: python test2
 author: pseong
 category: python
-date: 2020.2.7
+date: 2020.4.2
 ---
 # Welcome to StackEdit!
 
