@@ -6,15 +6,15 @@
   <!-- Title -->
   <h1 class="mt-4">{{ post['title']}}</h1>
 
+  <!-- Date/Time -->
+  {{ post['date']}}
+  
   <!-- Author -->
   <p class="lead">
     <a href="#">{{ post['author']}}</a>
   </p>
 
   <hr>
-
-  <!-- Date/Time -->
-  {{ post['date']}}
 
   <!-- Post Content -->
   {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
