@@ -29,10 +29,8 @@
       <button class="btn btn-link btn-sm ml-2" id="sidebarToggle" href="#"><span class="navbar-toggler-icon"></span></button>
       
       <a class="navbar-brand" href="{{url_for('home')}}">Pseong's blog</a>
-            <!-- Navbar Search-->
-            <!--<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0"></form>-->
       <div class="input-group">
-          <input id="search" class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+          <input id="search" class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" onkeypress="enter()"/>
           <div class="input-group-append">
               <button class="btn btn-secondary" type="button" onclick="search()"><i class="fas fa-search"></i></button>
           </div>
@@ -172,13 +170,6 @@
       </main>
     </div>
   </div>
-
-  <script>
-  function search() {
-    var searchtxt = document.getElementById("search").value;
-    location.href="https://pseong.kr/search/"+searchtxt
-  }
-  </script>
 
   <script src="{{ url_for('static', filename='js/scripts.js') }}"></script> <!--올리면 사이드바 안되면 문제 있음-->
 
