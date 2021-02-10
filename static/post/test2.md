@@ -70,7 +70,6 @@ xxxxxxx
 링크
 
 [Pseong](https://pseong.kr/)
-https://dooray.com/
 
 ---
 
