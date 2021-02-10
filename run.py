@@ -28,8 +28,8 @@ def loadPost(category_id=''):
         category_list[ft['category']] += 1
         if(category_id) : 
             if(ft['category'] == category_id) : 
-                post_list[ft['title']] = ft
-        else : post_list[ft['title']] = ft
+                post_list[file[:-3]] = ft
+        else : post_list[file[:-3]] = ft
     sortPostList()
 
 def searchPost(post_id):
@@ -43,7 +43,7 @@ def searchPost(post_id):
         ft = frontmatter.load(path_dir + '/' + file)
         category_list[ft['category']] += 1
         if(post_id in ft['title']) : 
-            post_list[ft['title']] = ft
+            post_list[file[:-3]] = ft
     sortPostList()
 
 def get_posts(offset=0, per_page=10):
