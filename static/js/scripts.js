@@ -1,12 +1,12 @@
 
 function search_title() {
     var searchtxt = document.getElementById("search").value;
-    location.href="/search/"+searchtxt
+    location.assign("/search/"+searchtxt);
 }
 
-function enter() {
+function enter_search() {
     if (window.event.keyCode == 13) {
-        search_title()
+        search_title();
     }
 }
 
