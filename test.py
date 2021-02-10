@@ -5,6 +5,7 @@ import frontmatter, os
 from collections import Counter
 import markdown
 import logging
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -62,6 +63,7 @@ def home():
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
     return render_template('home.html', post_list=post_list, category_list=category_list, len=len,
+                           BeautifulSoup=BeautifulSoup, markdown=markdown,
                            posts=pagination_posts,
                            page=page,
                            per_page=per_page,
