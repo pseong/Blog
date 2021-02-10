@@ -2,7 +2,7 @@
 title: c++ test
 author: pseong
 category: c++
-date: 2020.2.7
+date: 2020.9.7
 ---
 |제목|내용|설명|
 |---|---|---|
