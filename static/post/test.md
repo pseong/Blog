@@ -1,7 +1,7 @@
 ---
 title: 테스트 제목
 author: pseong
-category: 테스트 카테고리 1
+category: 자유게시판
 date: 2020.9.6 14:56
 ---
 
@@ -15,7 +15,7 @@ date: 2020.9.6 14:56
 
 |                |ASCII                          |HTML                         |
 |----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`        |'Isn't this fun?'            |
+|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
 |Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
 |Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
 

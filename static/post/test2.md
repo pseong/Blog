@@ -1,7 +1,7 @@
 ---
 title: 두번째 테스트 입니다.
 author: pseong
-category: 테스트 카테고리 2
+category: 프로그래밍
 date: 2020.9.7 14:56
 ---
 # 샵1
