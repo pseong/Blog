@@ -14,13 +14,18 @@ category_list = Counter()
 
 def sortPostList():
     global post_list
-    post_list = dict(sorted(post_list.items(), key=lambda x : x[1]['date'], reverse=True))
+    if(post_list):
+        post_list = dict(sorted(post_list.items(), key=lambda x : x[1]['date'], reverse=True))
 
 
 def loadPost(category_id=''):
     global post_list
     path_dir = '/home/coder/blog/static/post'
-    file_list = os.listdir(path_dir)
+    file_list = []
+    try:
+        file_list = os.listdir(path_dir)
+    except:
+        pass
     post_list.clear()
     category_list.clear()
     for file in file_list:
@@ -35,7 +40,11 @@ def loadPost(category_id=''):
 def searchPost(post_id):
     global post_list
     path_dir = '/home/coder/blog/static/post'
-    file_list = os.listdir(path_dir)
+    file_list = []
+    try:
+        file_list = os.listdir(path_dir)
+    except:
+        pass
     post_list.clear()
     category_list.clear()
 
