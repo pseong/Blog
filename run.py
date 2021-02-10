@@ -85,6 +85,7 @@ def category(category_id):
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
     return render_template('home.html', post_list=post_list, category_list=category_list, len=len, category_id=category_id,
+                           BeautifulSoup=BeautifulSoup, markdown=markdown,
                            posts=pagination_posts,
                            page=page,
                            per_page=per_page,
@@ -101,6 +102,7 @@ def search(search_id):
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
     return render_template('home.html', post_list=post_list, category_list=category_list, len=len, search_id=search_id,
+                           BeautifulSoup=BeautifulSoup, markdown=markdown,
                            posts=pagination_posts,
                            page=page,
                            per_page=per_page,
@@ -125,4 +127,4 @@ def internal_error(e):
 
 if __name__ == '__main__':
     disq = Disqus(app)
-    app.run(host = '0.0.0.0', port = 7273)
+    app.run(host = '0.0.0.0', port = 80)
