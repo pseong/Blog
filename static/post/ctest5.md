@@ -2,7 +2,7 @@
 title: c++ test5
 author: pseong
 category: c++
-date: 2020.2.10
+date: 2020.2.10 14:56
 ---
 # Welcome to StackEdit!
 

@@ -2,7 +2,7 @@
 title: html test2
 author: pseong
 category: html
-date: 2020.2.20
+date: 2020.2.20 14:56
 ---
 # Welcome to StackEdit!
 
