@@ -1,12 +1,13 @@
-function enter() {
-    if (window.event.keyCode == 13) {
-        search()
-    }
-}
 
-function search() {
+function search_title() {
     var searchtxt = document.getElementById("search").value;
     location.href="/search/"+searchtxt
+}
+
+function enter() {
+    if (window.event.keyCode == 13) {
+        search_title()
+    }
 }
 
 (function($) {
