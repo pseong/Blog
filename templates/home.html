@@ -14,8 +14,6 @@
   {% endif %}
   </h2>
   <hr>
-  soup = BeautifulSoup(html)
-  soup.get_text()
   <!-- Blog Post -->
   {% for post in posts %}
   {% set soup = BeautifulSoup(markdown.markdown(post_list[post].content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
