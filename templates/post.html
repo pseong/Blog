@@ -31,6 +31,7 @@
   {% include 'disqus.html' %}
 </div>
 {% set soup = BeautifulSoup(markdown.markdown(post.content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
+
 <script>
   Kakao.init('90109f360ea531e3481252cf5482d9ed');
   function sendLinkKakao(){
@@ -39,18 +40,18 @@
       content: {
         title: "{{ post['title'] }}",
         description: "{{ post['title'] }}",
-        imageUrl: "{{url_for('static',filename='images/pic.png')}}",
+        imageUrl: "https://pseong.kr{{url_for('static',filename='images/pic.png')}}",
         link: {
-          mobileWebUrl: '{{ request.build_absolute_uri }}',
-          webUrl: '{{ request.build_absolute_uri }}'
+          mobileWebUrl: 'https://pseong.kr/post/{{ post_id }}',
+          webUrl: 'https://pseong.kr/post/{{ post_id }}'
         }
       },
       buttons: [       
         {
           title: '링크 열기',
           link: {
-            mobileWebUrl: '{{ request.build_absolute_uri }}',
-            webUrl: '{{ request.build_absolute_uri }}'
+            mobileWebUrl: 'https://pseong.kr/post/{{ post_id }}',
+            webUrl: 'https://pseong.kr/post/{{ post_id }}'
           }
         }
       ]
