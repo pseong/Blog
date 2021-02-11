@@ -82,7 +82,8 @@ def home():
 @app.route('/post/<post_id>/')
 def post(post_id):
     loadPost()
-    return render_template('post.html', post=post_list[post_id], category_list=category_list, len=len, markdown=markdown)
+    return render_template('post.html', post=post_list[post_id], category_list=category_list, len=len, 
+                            BeautifulSoup=BeautifulSoup, markdown=markdown, post_id=post_id)
 
 @app.route('/category/<category_id>/')
 def category(category_id):
