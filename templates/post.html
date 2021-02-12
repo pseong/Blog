@@ -21,20 +21,18 @@
 
   <!-- Post Content -->
   {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
-  
-  <span>
-    <a onclick="sendLinkKakao();" id="kakao-link-btn" title="카카오톡으로 공유">
-        <img src="{{url_for('static',filename='images/kakao.png')}}" width=36 alt="Kakaotalk">
+  <div class="d-flex justify-content-center my-3">
+    <a class="mx-2" onclick="sendLinkKakao();" id="kakao-link-btn" title="카카오톡으로 공유">
+      <img src="{{url_for('static',filename='images/kakao.png')}}" width=36 alt="Kakaotalk">
     </a>
-  </span>
-  
-  <span>
-    <a onclick="copyLink();" title="링크 복사">
+    <a class="mx-2"  onclick="copyLink();" title="링크 복사">
       <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36>
     </a>
-  </span>
+  </div>
+
+
   <div style="position: relative;">
-    <div style="position: absolute; top: 0; left: 50%; transform:translate(-50%, -100%);">
+    <div style="position: absolute; top: 0; left: 50%; transform:translate(-50%, 0%);">
         <div class="toast">
             <div class="toast-body">
                 복사되었습니다.
