@@ -29,49 +29,36 @@
   </span>
   
   <span>
-    <a id="toast" onclick="copyLink();" title="링크 복사">
+    <a onclick="copyLink();" title="링크 복사">
       <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36>
     </a>
   </span>
+  <div style="position: relative;">
+    <div style="position: absolute; top: 0; left: 50%; transform:translate(-50%, -100%);">
+        <div class="toast">
+            <div class="toast-body">
+                복사되었습니다.
+            </div>
+        </div>
+    </div>
+  </div>
   {% include 'disqus.html' %}
-  
 </div>
 {% set soup = BeautifulSoup(markdown.markdown(post.content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
-
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
 
 <script>
   /* 링크복사 */
   function copyLink(){
-    alert("복사 되었습니다.");
     var dummy = document.createElement("textarea");
     document.body.appendChild(dummy);
     dummy.value = "https://pseong.kr/post/{{ post_id }}";
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
-  }
-  $().ready(function () {
-    $("#toast").click(function () {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: 'center-center',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer);
-          toast.addEventListener('mouseleave', Swal.resumeTimer);
-        }
-      })
-
-      Toast.fire({
-          icon: 'success',
-          title: 'toast 알림이 정상적으로 실행 되었습니다.'
-      })
+    $(function() {
+        $('.toast').toast('show');
     });
-  });
+  }
   /* 카카오톡 */
   Kakao.init('90109f360ea531e3481252cf5482d9ed');
   function sendLinkKakao(){
