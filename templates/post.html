@@ -25,7 +25,10 @@
     <a class="mx-2" onclick="sendLinkKakao();" id="kakao-link-btn" title="카카오톡으로 공유">
       <img src="{{url_for('static',filename='images/kakao.png')}}" width=36 alt="Kakaotalk">
     </a>
-    <a class="mx-2"  onclick="copyLink();" title="링크 복사">
+    <a class="mx-2"onclick="sendLinkNaver()">
+      <img src="{{url_for('static',filename='images/naver.png')}}">
+    </a>
+    <a class="mx-2" onclick="copyLink();" title="링크 복사">
       <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36>
     </a>
   </div>
@@ -57,7 +60,7 @@
         $('.toast').toast('show');
     });
   }
-  /* 카카오톡 */
+  /* 카카오톡 공유*/
   Kakao.init('90109f360ea531e3481252cf5482d9ed');
   function sendLinkKakao(){
     Kakao.Link.sendDefault({
@@ -81,6 +84,13 @@
         }
       ]
     }); 
+  }
+  /* 네이버 공유 */
+  function sendLinkNaver() {
+    var url = encodeURI(encodeURIComponent('https://pseong.kr/post/{{ post_id }}'));
+    var title = encodeURI("{{ post['title'] }}");
+    var shareURL = "https://share.naver.com/web/shareView.nhn?url=" + url + "&title=" + title;
+    window.open(shareURL, 'naversharedialog', "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=680,width=500");
   }
 </script>
 {% endblock %}
