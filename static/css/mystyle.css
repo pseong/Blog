@@ -199,6 +199,9 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+}
+
+img.post {
   border-radius: 0.5rem;
 }
 
