@@ -22,17 +22,17 @@
   <!-- Post Content -->
   {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
   <div class="d-flex justify-content-center my-3">
-    <a class="mx-2" onclick="sendLinkKakao();" id="kakao-link-btn" title="카카오톡으로 공유">
-      <img src="{{url_for('static',filename='images/kakao.png')}}" width=36 alt="Kakaotalk">
+    <a class="mx-2" onclick="sendLinkKakao();" title="카카오톡으로 공유">
+      <img src="{{url_for('static',filename='img/kakao.png')}}" width=36 alt="Kakaotalk">
     </a>
     <a class="mx-2" onclick="sendLinkNaver()" title="네이버로 공유">
-      <img src="{{url_for('static',filename='images/naver.png')}}" width=36 alt="Naver">
+      <img src="{{url_for('static',filename='img/naver.png')}}" width=36 alt="Naver">
     </a>
     <a class="mx-2" onclick="sendLinkFacebook()" title="">
-      <img src="{{url_for('static',filename='images/facebook.png')}}" width=36 alt="Facebook">
+      <img src="{{url_for('static',filename='img/facebook.png')}}" width=36 alt="Facebook">
     </a>
     <a class="mx-2" onclick="copyLink();" title="링크 복사">
-      <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36 alt="Cpylink">
+      <img src="{{url_for('static',filename='img/linkcopy.png')}}" width=36 alt="Cpylink">
     </a>
   </div>
 
@@ -78,7 +78,7 @@
       content: {
         title: "{{ post['title'] }}",
         description: "{{ post['title'] }}",
-        imageUrl: "https://pseong.kr{{url_for('static',filename='images/pic.png')}}",
+        imageUrl: "https://pseong.kr{{url_for('static',filename='img/pic.png')}}",
         link: {
           mobileWebUrl: 'https://pseong.kr/post/{{ post_id }}',
           webUrl: 'https://pseong.kr/post/{{ post_id }}'
