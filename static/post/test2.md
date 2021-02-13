@@ -2,6 +2,7 @@
 title: 두번째 테스트 입니다.
 author: pseong
 category: 프로그래밍
+img: google.png
 date: 2020.9.7 14:56
 ---
 # 샵1

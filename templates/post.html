@@ -97,7 +97,7 @@
       content: {
         title: "{{ post['title'] }}",
         description: "{{ post['title'] }}",
-        imageUrl: "https://pseong.kr{{url_for('static',filename='img/pic.png')}}",
+        imageUrl: "https://pseong.kr{{url_for('static',filename='img/'+post['img'])}}",
         link: {
           mobileWebUrl: 'https://pseong.kr/post/{{ post_id }}',
           webUrl: 'https://pseong.kr/post/{{ post_id }}'
