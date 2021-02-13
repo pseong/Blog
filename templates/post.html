@@ -31,6 +31,9 @@
     <a class="mx-2" onclick="sendLinkFacebook()" title="페이스북으로 공유">
       <img src="{{url_for('static',filename='img/facebook.png')}}" width=36 alt="Facebook">
     </a>
+    <a class="mx-2" onclick="sendLinkTwitter()" title="트위터로 공유">
+      <img src="{{url_for('static',filename='img/twitter.png')}}" width=36 alt="Twitter">
+    </a>
     <a class="mx-2" onclick="copyLink();" title="링크 복사">
       <img src="{{url_for('static',filename='img/linkcopy.png')}}" width=36 alt="Cpylink">
     </a>
@@ -51,11 +54,18 @@
 {% set soup = BeautifulSoup(markdown.markdown(post.content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
 
 <script>
+  /* 트위터 공유 */
+  function sendLinkTwitter(){
+    var url = 'https://pseong.kr/post/{{ post_id }}';
+    var text = "{{ post['title'] }}";
+    window.open("https://twitter.com/intent/tweet?text="+text+"&url="+url,
+    'twittersharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=680,width=500');
+  }
   /* 페이스북 공유 */
   function sendLinkFacebook(){
     var url = encodeURIComponent('https://pseong.kr/post/{{ post_id }}');
     var title = encodeURIComponent("{{ post['title'] }}");
-    javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=' +url+'&t='+title, 
+    window.open('https://www.facebook.com/sharer/sharer.php?u=' +url+'&t='+title, 
     'facebooksharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=680,width=500');
   }
   /* 링크복사 */
