@@ -25,11 +25,14 @@
     <a class="mx-2" onclick="sendLinkKakao();" id="kakao-link-btn" title="카카오톡으로 공유">
       <img src="{{url_for('static',filename='images/kakao.png')}}" width=36 alt="Kakaotalk">
     </a>
-    <a class="mx-2"onclick="sendLinkNaver()">
-      <img src="{{url_for('static',filename='images/naver.png')}}">
+    <a class="mx-2" onclick="sendLinkNaver()" title="네이버로 공유">
+      <img src="{{url_for('static',filename='images/naver.png')}}" width=36 alt="Naver">
+    </a>
+    <a class="mx-2" onclick="sendLinkFacebook()" title="">
+      <img src="{{url_for('static',filename='images/facebook.png')}}" width=36 alt="Facebook">
     </a>
     <a class="mx-2" onclick="copyLink();" title="링크 복사">
-      <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36>
+      <img src="{{url_for('static',filename='images/linkcopy.png')}}" width=36 alt="Cpylink">
     </a>
   </div>
 
@@ -48,6 +51,13 @@
 {% set soup = BeautifulSoup(markdown.markdown(post.content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
 
 <script>
+  /* 페이스북 공유 */
+  function sendLinkFacebook(){
+    var url = encodeURIComponent('https://pseong.kr/post/{{ post_id }}');
+    var title = encodeURIComponent("{{ post['title'] }}");
+    javascript:window.open('https://www.facebook.com/sharer/sharer.php?u=' +url+'&t='+title, 
+    'facebooksharedialog', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=680,width=500');
+  }
   /* 링크복사 */
   function copyLink(){
     var dummy = document.createElement("textarea");
