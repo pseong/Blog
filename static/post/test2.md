@@ -74,4 +74,4 @@ xxxxxxx
 ---
 
 이미지
-<img src="/static/images/pic.png"  width="300" height="300">
+<img src="/static/img/pic.png"  width="300" height="300">
