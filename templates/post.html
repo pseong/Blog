@@ -22,22 +22,22 @@
   <!-- Post Content -->
   {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
   <div class="d-flex justify-content-center my-4">
-    <a class="mx-2" onclick="sendLinkKakao();" title="카카오톡으로 공유">
+    <a class="mx-2 link" onclick="sendLinkKakao();" title="카카오톡으로 공유">
       <img src="{{url_for('static',filename='img/kakao.png')}}" width=36 alt="Kakaotalk">
     </a>
-    <a class="mx-2" onclick="sendLinkNaver()" title="네이버로 공유">
+    <a class="mx-2 link" onclick="sendLinkNaver()" title="네이버로 공유">
       <img src="{{url_for('static',filename='img/naver.png')}}" width=36 alt="Naver">
     </a>
-    <a class="mx-2" onclick="sendLinkFacebook()" title="페이스북으로 공유">
+    <a class="mx-2 link" onclick="sendLinkFacebook()" title="페이스북으로 공유">
       <img src="{{url_for('static',filename='img/facebook.png')}}" width=36 alt="Facebook">
     </a>
-    <a class="mx-2" onclick="sendLinkTwitter()" title="트위터로 공유">
+    <a class="mx-2 link" onclick="sendLinkTwitter()" title="트위터로 공유">
       <img src="{{url_for('static',filename='img/twitter.png')}}" width=36 alt="Twitter">
     </a>
-    <a class="mx-2" onclick="sendLinkKakaostory()" title="카카오스토리로 공유">
+    <a class="mx-2 link" onclick="sendLinkKakaostory()" title="카카오스토리로 공유">
       <img src="{{url_for('static',filename='img/kakaostory.png')}}" width=36 alt="Kakaostory">
     </a>
-    <a class="mx-2" onclick="copyLink();" title="링크 복사">
+    <a class="mx-2 link" onclick="copyLink();" title="링크 복사">
       <img src="{{url_for('static',filename='img/linkcopy.png')}}" width=36 alt="Cpylink">
     </a>
   </div>
