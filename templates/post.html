@@ -52,6 +52,20 @@
         </div>
     </div>
   </div>
+
+  <div id='caulyDisplay'>
+    <script src='//image.cauly.co.kr/websdk/common/lasted/ads.min.js'></script>
+    <script>
+        new CaulyAds({
+          app_code:"dvkpnUpX",
+          placement:1,
+          displayid:1,
+          passback:function(){},
+          success:function(){}
+        });
+     </script>
+  </div>
+
   {% include 'disqus.html' %}
 </div>
 {% set soup = BeautifulSoup(markdown.markdown(post.content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
