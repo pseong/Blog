@@ -10,6 +10,10 @@ function enter_search() {
     }
 }
 
+function cardClick(post) {
+    alert('dd');
+}
+
 (function($) {
     "use strict";
 

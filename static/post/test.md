@@ -3,7 +3,7 @@ title: 테스트 제목
 author: pseong
 category: 자유게시판
 img: pic.png
-date: 2020.9.6 14:56
+date: 2020.2.6 14:56
 ---
 
 |제목|내용|설명|
