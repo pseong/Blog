@@ -202,8 +202,13 @@ img {
 
 }
 
-img.post {
+.card-post {
   border-radius: 0.5rem;
+}
+
+.card-post:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 svg {
@@ -4330,12 +4335,16 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-}
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
-.card:hover {
-  
+  padding: 1px 0;
+  margin-bottom: 30px;
+  border-radius: 0.3rem;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  margin-right: inherit;
+  margin-left: inherit;
 }
 
 .link:hover{
@@ -4376,6 +4385,11 @@ input[type=button].btn-block {
 .card-title {
   margin-bottom: 0.75rem;
   font-weight: 550;
+  cursor: pointer;
+}
+
+.card-title:hover {
+  text-decoration: underline;
 }
 
 .card-subtitle {
@@ -4385,6 +4399,11 @@ input[type=button].btn-block {
 
 .card-text:last-child {
   margin-bottom: 0;
+}
+
+.card-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .card-link:hover {
@@ -10187,8 +10206,8 @@ body {
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
   display: flex;
   align-items: center;
-  padding-top: 0.15rem;
-  padding-bottom: 0.15rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
   position: relative;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
@@ -10268,17 +10287,7 @@ body {
 .sb-sidenav-light .sb-sidenav-footer {
   background-color: #e9ecef;
 }
-.my-card {
-  padding: 1px 0;
-  margin-bottom: 30px;
-  background-color: #fff;
-  border-radius: 0.3rem;
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.3);
-  margin-right: inherit;
-  margin-left: inherit;
-}
+
 .target {
   display: block;
   white-space: nowrap;

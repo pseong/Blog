@@ -22,16 +22,16 @@
   <!-- Blog Post -->
   {% for post in posts %}
   {% set soup = BeautifulSoup(markdown.markdown(post_list[post].content[0:600], extensions=['nl2br', 'fenced_code', 'tables'])|safe) %}
-  <div class="card my-card mb-2" onclick="this.style.backgroundColor='rgba(0,0,0,0.1)'; location.href='{{ url_for('post', post_id=post) }}'">
+  <div class="card mb-2" onclick="this.style.backgroundColor='rgba(0,0,0,0.1)'; location.href=`{{ url_for('post', post_id=post) }}`">
     <div class="card-body d-flex flex-row">
       <div class="media-body">
         <table style="width:100%; height:100%;">
-        <tr><td><p class="card-title my-0">{{ post_list[post]['title'] }}</p></td></tr>
+        <tr><td><p class="card-title my-0" >{{ post_list[post]['title'] }}</p></td></tr>
         <tr><td><p class="card-text text-muted my-0 target">{{ soup.get_text() }}</p></td></tr>
         <tr><td><p class="card-text small text-muted my-0">{{ post_list[post]['date'] }}</p></td></tr>
       </table>
       </div>
-      <img class="ml-2 post" src="{{url_for('static',filename='img/'+post_list[post]['img'])}}"  width="80" height="80">
+      <img class="card-post ml-2" src="{{url_for('static',filename='img/'+post_list[post]['img'])}}"  width="80" height="80">
     </div>
   </div>
   {% endfor %}
