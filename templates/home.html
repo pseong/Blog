@@ -8,7 +8,8 @@
 
   <!-- Post List -->
   <h5 class='mt-4 text-center text-muted'>
-  {% if category_id %}{{ category_id }}
+  {% if category_id %}
+    <a class='text-muted' href="{{ url_for('category', category_id=category_id) }}">{{ category_id }}</a>
   {% elif search_id %}
     {% if posts%}
     {{ '검색 : ' + search_id }}
