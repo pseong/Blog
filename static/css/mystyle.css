@@ -10288,14 +10288,27 @@ body {
   background-color: #e9ecef;
 }
 
-.target {
-  display: block;
+.text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: normal;
-  line-height: 1.2;
+  line-height: 1.2em;
   height: 2.4em;
+  text-align: left;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.title-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: normal;
+  line-height: 1.2em;
+  height: 1.2em;
   text-align: left;
   word-wrap: break-word;
   display: -webkit-box;
