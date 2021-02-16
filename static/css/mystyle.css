@@ -3883,7 +3883,7 @@ input[type=button].btn-block {
     transition: none;
   }
 }
-
+/*
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -4328,7 +4328,7 @@ input[type=button].btn-block {
 }
 .navbar-dark .navbar-text a:hover, .navbar-dark .navbar-text a:focus {
   color: #fff;
-}
+}*/
 
 .card {
   min-width: 0;
