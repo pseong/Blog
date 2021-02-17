@@ -2,7 +2,7 @@
 title: 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목
 author: pseong
 category: 자유게시판
-tag:
+tags:
 - free
 - test
 - html
