@@ -4,7 +4,6 @@ from flask_disqus import Disqus
 import frontmatter, os
 from collections import Counter
 import markdown
-import logging
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)

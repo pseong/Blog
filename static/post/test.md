@@ -2,6 +2,10 @@
 title: 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목 긴 테스트 제목
 author: pseong
 category: 자유게시판
+tag:
+- free
+- test
+- html
 img: pic.png
 date: 2020.2.6 14:56
 ---

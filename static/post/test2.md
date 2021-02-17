@@ -2,6 +2,10 @@
 title: 두번째 테스트 입니다.
 author: pseong
 category: 프로그래밍
+tags:
+- 프로그래밍
+- test
+- c++
 img: google.png
 date: 2020.2.7 14:56
 ---

@@ -21,6 +21,23 @@
 
   <!-- Post Content -->
   {{ markdown.markdown(post.content, extensions=['nl2br', 'fenced_code', 'tables'])|safe }}
+
+  <div>
+    <span class="text-muted">category : </span>
+    <span class="badge badge-outline">
+      <a class="text-secondary" href="{{ url_for('category', category_id=post['category']) }}">{{ post['category'] }}</a>
+    </span>
+  </div>
+
+  <div>
+    <span class="text-muted">tags : </span>
+    {% for tag in post['tags'] %}
+    <span class="badge badge-outline text-muted">
+      {{ tag }}
+    </span>
+    {% endfor %}
+  </div>
+
   <div class="d-flex justify-content-center my-4">
     <a class="mx-2 link" onclick="sendLinkKakao();" title="카카오톡으로 공유">
       <img src="{{url_for('static',filename='img/kakao.png')}}" width=36 alt="Kakaotalk">
@@ -52,6 +69,7 @@
         </div>
     </div>
   </div>
+
   <!--
   <div id='caulyDisplay'>
     <script src='https://image.cauly.co.kr/websdk/common/lasted/ads.min.js'></script>

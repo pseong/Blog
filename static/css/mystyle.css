@@ -10315,3 +10315,25 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.badge {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+}
+
+.badge.rounded-pill {
+  padding: 0.325em 0.625em;
+}
+
+.text-secondary {
+  --text-a: 1;
+}
+
+.badge-outline {
+  border-color: #CCCCCC;
+}
+
+.text-secondary {
+  color: hsla(208, 7%, calc(46% * var(--text-l, 1)), var(--text-a, 1)) !important;
+}
