@@ -8,6 +8,6 @@ tags:
 - python
 img: google.png
 date: 2020.2.7 14:56
-deleted: 0
+deleted: 1
 ---
 내용없음
