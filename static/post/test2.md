@@ -8,7 +8,7 @@ tags:
 - c++
 img: google.png
 date: 2020.2.7 14:56
-deleted: 0
+deleted: 01
 ---
 # 샵1
 ## 샵2
