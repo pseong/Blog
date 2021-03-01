@@ -8,7 +8,7 @@ tags:
 - html
 img: pic.png
 date: 2020.2.6 14:56
-deleted: 0
+deleted: 1
 ---
 
 |제목|내용|설명|
