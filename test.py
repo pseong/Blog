@@ -29,11 +29,12 @@ def loadPost(category_id=''):
     category_list.clear()
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
-        category_list[ft['category']] += 1
-        if(category_id) : 
-            if(ft['category'] == category_id) : 
-                post_list[file[:-3]] = ft
-        else : post_list[file[:-3]] = ft
+        if(ft['deleted'] == 0) :
+            category_list[ft['category']] += 1
+            if(category_id) : 
+                if(ft['category'] == category_id) : 
+                    post_list[file[:-3]] = ft
+            else : post_list[file[:-3]] = ft
     sortPostList()
 
 def searchPost(post_id):
@@ -49,9 +50,10 @@ def searchPost(post_id):
 
     for file in file_list:
         ft = frontmatter.load(path_dir + '/' + file)
-        category_list[ft['category']] += 1
-        if(post_id in ft['title']) : 
-            post_list[file[:-3]] = ft
+        if(ft['deleted'] == 0) :
+            category_list[ft['category']] += 1
+            if(post_id in ft['title']) :
+                post_list[file[:-3]] = ft
     sortPostList()
 
 def get_posts(offset=0, per_page=10):
